@@ -1,0 +1,5 @@
+feat: Prepare for Render.com deployment
+
+- Configure ALLOWED_HOSTS to use environment variable.
+- Add WhiteNoise for static files serving in production.
+- Create Procfile for Gunicorn.
