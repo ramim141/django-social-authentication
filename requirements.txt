@@ -4,3 +4,4 @@ python-dotenv
 django-allauth
 social-auth-app-django
 whitenoise
+psycopg2-binar
