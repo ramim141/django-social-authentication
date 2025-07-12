@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://django-social-authentication.onrender.com', '.onrender.com']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 
 # Application definition
@@ -89,11 +89,19 @@ WSGI_APPLICATION = 'social_auth_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL'),
+#         conn_max_age=600
+#     )
+# }
+
+# Sqlite
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -153,7 +161,7 @@ SOCIAL_AUTH_LINKEDIN_OIDC_KEY = os.getenv('SOCIAL_AUTH_LINKEDIN_OIDC_KEY')
 SOCIAL_AUTH_LINKEDIN_OIDC_SECRET = os.getenv('SOCIAL_AUTH_LINKEDIN_OIDC_SECRET')
 SOCIAL_AUTH_LINKEDIN_OIDC_SCOPE = ['openid', 'profile', 'email']
 
-SOCIAL_AUTH_USER_MODEL = 'authentication_app.CustomUser'
+
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True 
 
 SOCIAL_AUTH_PIPELINE = [
